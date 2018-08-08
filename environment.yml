@@ -1,7 +1,7 @@
-name: name_environment
+name: bridge_computational_Bootcamp
 
 channels:
-  - bridge_computational_Bootcamp
+  - defaults
 
 dependencies:
   - python>=3.6
@@ -13,4 +13,12 @@ dependencies:
   - pandas>=0.19.0
   - scipy
   - seaborn>=0.8.1
+  - scikit-learn>=0.19.1
+  - sphinx
   - pip
+  - pip:
+    - GitPython
+    - progressbar2
+    - sphinx_rtd_theme
+    - tqdm
+    - tables
