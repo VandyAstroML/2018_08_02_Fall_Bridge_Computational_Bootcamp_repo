@@ -14,5 +14,3 @@ dependencies:
   - scipy
   - seaborn>=0.8.1
   - pip
-  - pip:
-    - tables
