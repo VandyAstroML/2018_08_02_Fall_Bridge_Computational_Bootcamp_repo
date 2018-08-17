@@ -96,11 +96,71 @@ SSH_files_create(){
 }
 
 # `.aliases` creation
-
 aliases_create(){
+    # Alias URL
+    remote_file="https://tinyurl.com/bcb-aliases"
+    local_file=${HOME}/.aliases.sh
+    local_mod=${HOME}/.aliases_backup.sh
     # Check if file exists
-    if [[ ! -f ${HOME}/.aliases.sh ]]; then
-        
+    if [[ ! -f ${local_file} ]]; then
+        # Downloading file
+        echo ">>> Downloading 'aliases' file"
+        curl -o ${local_file} -JLO ${remote_file}
+    else
+        # Renaming file
+        echo ">>> Renaming old 'aliases' file"
+        echo "mv ${local_file} ${local_mod}"
+        mv ${local_file} ${local_mod}
+        # Downloading file
+        echo ">>> Downloading 'aliases' file"
+        echo "curl -o ${local_file} -JLO ${remote_file}"
+        curl -o ${local_file} -JLO ${remote_file}
+    fi
+}
+
+# `.color_codes.sh` creation
+color_codes_create(){
+    # Alias URL
+    remote_file="https://tinyurl.com/bcb-color-codes"
+    local_file=${HOME}/.color_codes.sh
+    local_mod=${HOME}/.color_codes_backup.sh
+    # Check if file exists
+    if [[ ! -f ${local_file} ]]; then
+        # Downloading file
+        echo ">>> Downloading 'aliases' file"
+        curl -o ${local_file} -JLO ${remote_file}
+    else
+        # Renaming file
+        echo ">>> Renaming old 'aliases' file"
+        echo "mv ${local_file} ${local_mod}"
+        mv ${local_file} ${local_mod}
+        # Downloading file
+        echo ">>> Downloading 'aliases' file"
+        echo "curl -o ${local_file} -JLO ${remote_file}"
+        curl -o ${local_file} -JLO ${remote_file}
+    fi
+}
+
+# `.bashrc` creation
+color_codes_create(){
+    # Alias URL
+    remote_file="https://tinyurl.com/bcb-color-codes"
+    local_file=${HOME}/.color_codes.sh
+    local_mod=${HOME}/.color_codes_backup.sh
+    # Check if file exists
+    if [[ ! -f ${local_file} ]]; then
+        # Downloading file
+        echo ">>> Downloading 'aliases' file"
+        curl -o ${local_file} -JLO ${remote_file}
+    else
+        # Renaming file
+        echo ">>> Renaming old 'aliases' file"
+        echo "mv ${local_file} ${local_mod}"
+        mv ${local_file} ${local_mod}
+        # Downloading file
+        echo ">>> Downloading 'aliases' file"
+        echo "curl -o ${local_file} -JLO ${remote_file}"
+        curl -o ${local_file} -JLO ${remote_file}
     fi
 }
 
@@ -118,4 +178,9 @@ if [[ ${file_opt} == '-a' ]] || [[ ${file_opt} == '--all' ]]; then
     create_autocomplete_ssh
     # Creating new files and directories for SSH
     SSH_files_create
+    # Downloading aliases
+    aliases_create
+    # Downloading color codes
+    color_codes_create
+    # Downloading `bashrc` file
 fi

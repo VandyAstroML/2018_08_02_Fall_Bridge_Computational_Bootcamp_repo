@@ -29,7 +29,6 @@ fi
 ############################ COLOR CODING #####################################
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
-alias ls='ls -GFh'
 
 ############################## GIT STATUS #####################################
 ## -- Git Status -- ##
@@ -116,12 +115,12 @@ export HISTFILESIZE=100000 # Increase history file size
 
 ############################# OPERATING SYSTEM ################################
 ## -- Operating system details -- ##
-if ( which lsb_release >> /dev/null ); then
-    OS=$(lsb_release -si)
-    ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
-    VER=$(lsb_release -sr)
-    echo $OS $ARCH $VER
-fi
+# if ( which lsb_release >> /dev/null ); then
+#     OS=$(lsb_release -si)
+#     ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+#     VER=$(lsb_release -sr)
+#     echo $OS $ARCH $VER
+# fi
 
 ################################# SSH KEYS ####################################
 ## Loading SSH Agent

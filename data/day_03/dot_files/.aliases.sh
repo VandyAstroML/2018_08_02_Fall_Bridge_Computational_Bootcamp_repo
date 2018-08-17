@@ -6,6 +6,11 @@
 ## This is a compilation of useful `aliases` to use in research.
 
 ############################## --- GENERAL --- ################################
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    alias ls='ls -GFh'
+else
+    alias ls='ls --color -GFh'
+fi
 alias   lll='ls -lah'
 alias   LLL=lll
 alias   lla=lll
@@ -28,12 +33,12 @@ alias timemachine='sudo sysctl debug.lowpri_throttle_enabled=0'
 alias  untar_file='tar -zxvf $1'
 
 # Aliases for the `bashrc`/`bash_profile` files
-if [[ -f $HOME/.bashrc ]]; then
-  alias    sb='source ~/.bashrc'
-  alias   sbr='opensub ~/.bashrc'
-else
+if [[ -f "$OSTYPE" =~ ^darwin ]]; then
   alias    sb='source ~/.bash_profile'
   alias   sbr='opensub ~/.bash_profile'
+else
+  alias    sb='source ~/.bashrc'
+  alias   sbr='opensub ~/.bashrc'
 fi
 
 ####################### --- PROJECT STRUCTURE --- #############################
