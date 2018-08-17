@@ -127,38 +127,38 @@ color_codes_create(){
     # Check if file exists
     if [[ ! -f ${local_file} ]]; then
         # Downloading file
-        echo ">>> Downloading 'aliases' file"
+        echo ">>> Downloading 'color_codes' file"
         curl -o ${local_file} -JLO ${remote_file}
     else
         # Renaming file
-        echo ">>> Renaming old 'aliases' file"
+        echo ">>> Renaming old 'color_codes' file"
         echo "mv ${local_file} ${local_mod}"
         mv ${local_file} ${local_mod}
         # Downloading file
-        echo ">>> Downloading 'aliases' file"
+        echo ">>> Downloading 'color_codes' file"
         echo "curl -o ${local_file} -JLO ${remote_file}"
         curl -o ${local_file} -JLO ${remote_file}
     fi
 }
 
 # `.bashrc` creation
-color_codes_create(){
+bashrc_create(){
     # Alias URL
-    remote_file="https://tinyurl.com/bcb-color-codes"
-    local_file=${HOME}/.color_codes.sh
-    local_mod=${HOME}/.color_codes_backup.sh
+    remote_file="https://tinyurl.com/bcb-bashrc"
+    local_file=${HOME}/.bashrc
+    local_mod=${HOME}/.bashrc_backup
     # Check if file exists
     if [[ ! -f ${local_file} ]]; then
         # Downloading file
-        echo ">>> Downloading 'aliases' file"
+        echo ">>> Downloading 'bashrc' file"
         curl -o ${local_file} -JLO ${remote_file}
     else
         # Renaming file
-        echo ">>> Renaming old 'aliases' file"
+        echo ">>> Renaming old 'bashrc' file"
         echo "mv ${local_file} ${local_mod}"
         mv ${local_file} ${local_mod}
         # Downloading file
-        echo ">>> Downloading 'aliases' file"
+        echo ">>> Downloading 'bashrc' file"
         echo "curl -o ${local_file} -JLO ${remote_file}"
         curl -o ${local_file} -JLO ${remote_file}
     fi
@@ -183,4 +183,5 @@ if [[ ${file_opt} == '-a' ]] || [[ ${file_opt} == '--all' ]]; then
     # Downloading color codes
     color_codes_create
     # Downloading `bashrc` file
+    bashrc_create
 fi
