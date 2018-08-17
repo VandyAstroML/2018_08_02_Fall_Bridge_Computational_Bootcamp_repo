@@ -1,7 +1,7 @@
 ##
 ## Author: Victor Calderon
 ##
-## Last Updated: 2018-08-05
+## Last Updated: 2018-08-17
 ##
 ## This is a compilation of useful `aliases` to use in research.
 

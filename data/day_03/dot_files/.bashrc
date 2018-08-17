@@ -22,8 +22,8 @@ fi
 
 ################################ ALIASES ######################################
 ## This sources the aliases in '~/.aliases'
-if [[ -f ~/.aliases ]]; then
-    . ~/.aliases
+if [[ -f ~/.aliases.sh ]]; then
+    . ~/.aliases.sh
 fi
 
 ############################ COLOR CODING #####################################
@@ -46,8 +46,8 @@ function git_status() {
 
 ############################# COMMAND-LINE PROMPT #############################
 # Color Codes
-if [[ -f ~/.color_codes ]]; then
-    . ~/.color_codes
+if [[ -f ~/.color_codes.sh ]]; then
+    . ~/.color_codes.sh
 else
     # Normal Intensity
     IBlack='\e[0;90m' # Black

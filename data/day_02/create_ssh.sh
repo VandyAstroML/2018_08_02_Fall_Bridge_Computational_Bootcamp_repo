@@ -45,7 +45,7 @@ create_autocomplete_ssh(){
 }
 
 #  `SSH File creation`
-ssh_files_create(){
+SSH_files_create(){
     ### Creates files and folders for the `~/.ssh` directory
     SSH_DIR="$HOME/.ssh"
     ## -- Main SSH folder -- ##
@@ -56,8 +56,21 @@ ssh_files_create(){
     # Changing file/folder permission
     chmod 700 ${SSH_DIR}
     ## -- Config file -- ##
+    if [[ "$OSTYPE" =~ ^darwin ]]; then
+        config_str="https://tinyurl.com/ssh-config-mac"
+    else
+        config_str="https://tinyurl.com/ssh-config-linux"
+    fi
+    # Checking if file exists
     if [[ ! -f ${SSH_DIR}/config ]]; then
-        touch ${SSH_DIR}/config
+        # Downloading proper version of file `config`
+        echo ">>> Downloading 'SSH config'\n"
+        curl -o ${SSH_DIR}/config -JLO ${config_str}
+    else
+        # Changing name of config file
+        mv ${SSH_DIR}/config ${SSH_DIR}/config_backup
+        echo ">>> Downloading 'SSH config'\n"
+        curl -o ${SSH_DIR}/config -JLO ${config_str}
     fi
     chmod 600 ${SSH_DIR}/config
     ## Authorized keys file
@@ -82,6 +95,15 @@ ssh_files_create(){
     chmod 700 ${SSH_DIR}/pub_keys
 }
 
+# `.aliases` creation
+
+aliases_create(){
+    # Check if file exists
+    if [[ ! -f ${HOME}/.aliases.sh ]]; then
+        
+    fi
+}
+
 ##################### --- Reading inputs --- #####################
 # Options
 file_opt=$1
@@ -92,6 +114,8 @@ if [[ ${file_opt} == '-h' ]]; then
 fi
 
 if [[ ${file_opt} == '-a' ]] || [[ ${file_opt} == '--all' ]]; then
-    #statements
+    # Creating `autocomplete.sh` file
     create_autocomplete_ssh
+    # Creating new files and directories for SSH
+    SSH_files_create
 fi
